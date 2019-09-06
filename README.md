@@ -23,7 +23,7 @@ Adminset基于DevOps理念开发，以整合全部运维场景为己任。Admins
     防火墙所需端口 8888 80
 #### 服务端系统依赖
 ```
-yum -y install 
+yum -y install openldap-devel gcc gcc-c++ python-devel mysql-devel
 再手动pip安装requirements.txt中的软件
 ```
     
