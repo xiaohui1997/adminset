@@ -15,17 +15,20 @@ Adminset基于DevOps理念开发，以整合全部运维场景为己任。Admins
 ## 开发环境
     centos 7.2(1511) django 1.11.16 python 2.7
 
-## 服务端安装
+## 服务端安装说明
     生产服务器建议 4核CPU，6G内存以上.
     学习测试建议 2核CPU，2G内存以上.
     服务器操作系统版本要求 centos7.2 centos7.4
     安装之前请关闭防火墙
+    防火墙所需端口 8888 80
+####服务端系统依赖
 ```
-git clone https://github.com/guohongze/adminset.git
-adminset/install/server/auto_install.sh
+yum -y install 
+再手动pip安装requirements.txt中的软件
 ```
-说明：手动自定义安装请使用
-adminset/install/server/server_install.sh
+    
+## 服务端安装脚本
+    adminset/install/server/server_install.sh
 
 
 ## 客户端安装
@@ -38,7 +41,7 @@ step1: 修改文件install/client/adminset_agent.py :
 ```
 客户端正常使用需要修改脚本中的两个字段：
 token = 'HPcWR7l4NJNJ'        #token是上传到服务器的密钥可以在WEB界面的系统配置中自定义
-server_ip = '192.168.47.130'  #此项目为adminset server的IP地址
+server_ip = '192.168.x.x'  #此项目为adminset server的IP地址
 ```
 
 step2: 拷贝install/client/ 目录到客户机的任意位置并执行:
@@ -54,7 +57,6 @@ service adminsetd start|stop|restart|status
 
 
 ## 访问
-    关闭防火墙或开通80端口
     http://your_server_ip
     自动安装的用户名admin 密码Adminset123
     手动安装使用自定义创建的super admin用户名密码
@@ -74,11 +76,4 @@ FAQ参考，<a href="https://github.com/guohongze/adminset/wiki/FAQ">常见问�
     建议生产环境中使用https配置服务器，并对命令执行、webssh等模块进行安全强化
     由于开发方便，在django的settings中开启了DEBUG，在生产中需要关闭并指定自己的域名。
 
-## 开发者交流
-    请加入开发者群
-    3号群 730232593
-    
-    作者微博
-    https://weibo.com/guhongze/
-
-
+本项目的底层代码基于: <a href="https://github.com/guohongze/adminset">guohongze</a>
