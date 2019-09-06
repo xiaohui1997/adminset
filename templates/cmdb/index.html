@@ -3,6 +3,7 @@
 {% block self_head_css_js %}
     <script src="/static/layer/layer.js"></script>
     <script src="/static/js/base.js"></script>
+    <script src="/static/js/modify_geshi.js"></script>
     <script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
     <script src="/static/plugins/datatables/dataTables.bootstrap.css"></script>
@@ -189,6 +190,7 @@
                                     <th>管理IP</th>
                                     <th>CPU</th>
                                     <th>内存(G)</th>
+                                    <th>磁盘(G)</th>
                                     <th>机房</th>
                                     <th class="text-center">功能</th>
                                 </tr>
@@ -204,6 +206,7 @@
                                         <td>{{ host.ip }}</td>
                                         <td>{{ host.cpu_num }}</td>
                                         <td>{{ host.memory }}</td>
+                                        <td id='disk'>{{ host.disk }}</td>
                                         <td>{{ host.idc }}</td>
                                         <td class="text-center" data-editable='false'>
                                             <div align="center">
@@ -388,6 +391,10 @@ function node_status(args) {
       });
 }
 
+</script>
+<script>
+    {#磁盘容量前端修改#}
+	cmdb_index_disk();
 </script>
 
 {% endblock %}
